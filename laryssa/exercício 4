@@ -1,0 +1,29 @@
+program MenorTrinca;
+
+uses crt;
+
+var
+  a, b, c, menor: Integer;
+
+begin
+  clrscr;
+  writeln('Digite trincas de numeros inteiros (0 0 0 para terminar):');
+
+  repeat
+    readln(a, b, c);
+    if (a = 0) and (b = 0) and (c = 0) then
+      break;
+
+    { Encontra o menor valor da trinca }
+    menor := a;
+    if b < menor then
+      menor := b;
+    if c < menor then
+      menor := c;
+
+    writeln('Menor da trinca: ', menor);
+  until False;
+
+  writeln('Fim do programa.');
+  readln;
+end.

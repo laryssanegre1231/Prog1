@@ -1,0 +1,20 @@
+program MultiplosTresFaixa;
+
+uses crt;
+
+var
+  num: Integer;
+
+begin
+  clrscr;
+  writeln('Digite uma sequencia de numeros inteiros (0 para terminar):');
+
+  repeat
+    readln(num);
+    if (num <> 0) and ((num mod 3 = 0) and (num > 50) and (num <= 201)) then
+      writeln('Numero valido: ', num);
+  until num = 0;
+
+  writeln('Fim do programa.');
+  readln;
+end.

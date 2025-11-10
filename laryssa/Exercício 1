@@ -1,0 +1,17 @@
+program SomaParesImpares;
+var
+  num, somaPar, somaImpar: integer;
+begin
+  somaPar := 0;
+  somaImpar := 0;
+  repeat
+    readln(num);
+    if num <> 0 then
+      if num mod 2 = 0 then
+        somaPar := somaPar + num
+      else
+        somaImpar := somaImpar + num;
+  until num = 0;
+  writeln('Soma dos pares: ', somaPar);
+  writeln('Soma dos impares: ', somaImpar);
+end.
