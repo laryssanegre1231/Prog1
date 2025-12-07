@@ -1,0 +1,60 @@
+program TrianguloPascalCentralizado;
+
+const
+    MAX = 10; { número de linhas }
+type
+    Vetor = array[1..MAX] of integer;
+
+procedure ImprimeLinhaCentralizada(var v: Vetor; tam: integer; totalLinhas: integer);
+var
+    i, espacos: integer;
+begin
+    { Calcula os espaços para centralizar }
+    espacos := totalLinhas - tam;
+    for i := 1 to espacos do
+        write('  ');  { dois espaços para ficar mais bonito }
+    
+    { Imprime os elementos da linha }
+    for i := 1 to tam do
+        write(v[i], '   ');  { três espaços entre números }
+    
+    writeln;
+end;
+
+procedure GeraLinha(var anterior: Vetor; var atual: Vetor; tamAnterior: integer; var tamAtual: integer);
+var
+    i: integer;
+begin
+    tamAtual := tamAnterior + 1;
+    
+    for i := 1 to tamAtual do
+    begin
+        if (i = 1) or (i = tamAtual) then
+            atual[i] := 1
+        else
+            atual[i] := anterior[i-1] + anterior[i];
+    end;
+end;
+
+var
+    penultima, ultima: Vetor;
+    tamP, tamU: integer;
+    linha: integer;
+
+begin
+    { Primeira linha }
+    tamU := 1;
+    ultima[1] := 1;
+    ImprimeLinhaCentralizada(ultima, tamU, MAX);
+
+    { Gera as demais linhas }
+    for linha := 2 to MAX do
+    begin
+        penultima := ultima;
+        tamP := tamU;
+
+        GeraLinha(penultima, ultima, tamP, tamU);
+        ImprimeLinhaCentralizada(ultima, tamU, MAX);
+    end;
+end.
+
